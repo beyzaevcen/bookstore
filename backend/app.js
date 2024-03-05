@@ -11,6 +11,8 @@ const db = mysql.createConnection({
 
 })
 
+app.use(express.json())
+
 app.get("/",(req,res)=>{
     res.json("hi")
 })
@@ -21,6 +23,22 @@ app.get("/films",(req,res)=>{
         if(err) return res.json(err)
         return res.json(data)
     })
+
+})
+
+app.post("/films",(req,res)=>{
+    const q = "INSERT INTO films(`name`,`desc`,`poster`) VALUES(?)"
+    const values =[
+        req.body.name,
+        req.body.desc,
+        req.body.poster,
+      
+    ];
+    db.query(q,[values],(err,data)=>{
+        if(err) return res.json(err)
+        return res.json("cretaed");
+    })
+
 
 })
 
