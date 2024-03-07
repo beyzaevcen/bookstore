@@ -3,44 +3,36 @@ import axios from 'axios';
 
 function Films() {
   const [films, setFilms] = useState([]);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchAllFilms = async () => {
       try {
-        const res = await axios.get("http://localhost:3002/films");
-        if (!Array.isArray(res.data)) {
-          throw new Error("Film data is not an array.");
-        }
+        const res = await axios.get("http://localhost:8800/films");
         setFilms(res.data);
       } catch (err) {
         console.error("Error fetching films:", err);
-        setError(err.message);
+        // Handle fetch error here
       }
     };
 
     fetchAllFilms();
   }, []);
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
+  // Check if films is not an array
   if (!Array.isArray(films)) {
-    return <div>No films available.</div>;
+    return <div>Error: Films data is not an array.</div>;
   }
 
+  // Render films if data fetching is successful
   return (
     <div>
-      <h1>Beyza Film Store</h1>
-      <div className='films'>
-        {films.map(film => (
-          <div key={film.id} className='film'>
-            <div>
-              <h2>{film.title}</h2>
-              <p>{film.description}</p>
-              {/* <img src={film.poster} alt={film.title} /> */}
-            </div>
+      <h1>Lama Book Shop</h1>
+      <div className="films">
+        {films.map((film) => (
+          <div key={film.id} className="book">
+            <img src={film.cover} alt="" />
+            <h2>{film.title}</h2>
+            <p>{film.desc}</p>     
           </div>
         ))}
       </div>
@@ -49,4 +41,3 @@ function Films() {
 }
 
 export default Films;
-

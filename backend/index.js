@@ -8,11 +8,11 @@ app.use(express.json())
 app.use(cors())
 
 
-const filmsRoutes = require('../routes/film_routes');
+const filmsRoutes = require('./routes/film_routes');
 app.use(filmsRoutes);
 
 
 
-app.listen(3002, () => {
+app.listen(8800, () => {
     console.log('connected with backend');
 });
