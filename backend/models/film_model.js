@@ -3,8 +3,8 @@ const db = require('../utils/database');
 async function getAllFilms() {
     try {
         const q = "SELECT * FROM films";
-        const [rows, fields] = await db.query(q);
-        return rows;
+        const data= await db.query(q);
+        return data;
     } catch (err) {
         throw err; // Throw the original error for better error handling
     }

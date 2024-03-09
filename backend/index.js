@@ -13,6 +13,6 @@ app.use(filmsRoutes);
 
 
 
-app.listen(8800, () => {
+app.listen(3306, () => {
     console.log('connected with backend');
 });

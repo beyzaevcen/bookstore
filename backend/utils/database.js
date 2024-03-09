@@ -1,9 +1,9 @@
 const mysql = require('mysql2/promise');
 
 const config = {
-    host: "localhost",
+    host: "127.0.0.1",
     user: "root",
-    password: "Beyzaevcenim1.",
+    password: "12234",
     database: "test",
 }
 
@@ -11,7 +11,7 @@ const config = {
 async function query(sql, values) {
     const connection = await mysql.createConnection(config);
     try {
-        const [rows, fields] = await connection.execute(sql, values);
+        const [rows] = await connection.execute(sql, values);
         return rows;
     } catch (error) {
         throw error;
