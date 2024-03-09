@@ -12,7 +12,7 @@ async function getAllFilms(req, res) {
 
 async function createFilm(req, res) {
     try {
-        const result = await Film.create(req.body);
+        const result = await filmsModel.createFilm(res.body);
         res.json(result);
     } catch (err) {
         res.status(500).json({ error: err.message });

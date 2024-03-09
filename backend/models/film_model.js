@@ -12,18 +12,24 @@ async function getAllFilms() {
 
 async function createFilm(filmData) {
     try {
-        const q = "INSERT INTO films(`name`,`desc`,`poster`) VALUES(?, ?, ?)";
+        const q = "INSERT INTO films (`name`, `desc`, `poster`, `imdb`) VALUES (?, ?, ?, ?)";
+
         const values = [
             filmData.name,
             filmData.desc,
             filmData.poster,
+            filmData.imdb,
         ];
+
         const result = await db.query(q, values); 
-        return result; // Return the result of the insertion operation
+        console.log(result);// Return the result of the insertion operation
+
+        return result; 
     } catch (err) {
         throw err; // Throw the original error for better error handling
     }
 }
+
 
 module.exports = {
     createFilm,

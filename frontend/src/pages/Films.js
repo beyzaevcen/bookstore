@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom'; 
 
 function Films() {
   const [films, setFilms] = useState([]);
@@ -21,20 +22,31 @@ function Films() {
   console.log("Films:", films); // Add this line to check the value of films
 
   return (
-    <div>
+    <div className='allpage'>
       <h1>Film Store</h1>
-      {/* Check if films is an array before calling map */}
+      <div className='filmpart'>
+ 
       {Array.isArray(films) ? (
         films.map((film) => (
-          <div key={film.id}>
-            <h2>{film.name}</h2> {/* Assuming each film is a string */}
+          <div key={film.id} className="films">
+             <img src={film.poster} alt={film.name} className="poster"/>
+          <div className='filminfo'>
+          <h2>{film.name}</h2>
+            <p>{film.desc}</p>
+            <p>{film.imdb}</p>
+          </div>
+           
           </div>
         ))
       ) : (
         <div>No films available</div>
       )}
+      </div>
+  
+      <button className='addPage'><Link to="/add">Add new film</Link></button>
     </div>
   );
+  
 }
 
 export default Films;
