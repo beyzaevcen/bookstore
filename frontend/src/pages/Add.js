@@ -19,7 +19,7 @@ const navigate = useNavigate();
     e.preventDefault();
     try {
       await axios.post("http://localhost:3306/films", film);
-      navigate("/");
+      navigate("/films");
     } catch (err) {
       console.log(err);
     }

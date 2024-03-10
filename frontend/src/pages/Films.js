@@ -23,7 +23,7 @@ function Films() {
 
   return (
     <div className='allpage'>
-      <h1>Film Store</h1>
+      <h1>Film Diary</h1>
       <div className='filmpart'>
  
       {Array.isArray(films) ? (

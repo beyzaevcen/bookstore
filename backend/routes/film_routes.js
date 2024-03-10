@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/films', filmsController.getAllFilms);
 
-router.post('/add', filmsController.createFilm);
+router.post('/films', filmsController.createFilm);
 
 module.exports = router;
 
