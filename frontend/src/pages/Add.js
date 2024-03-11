@@ -33,22 +33,18 @@ const navigate = useNavigate();
     <div className='form'>
       <h1>Add new film</h1>
       <label>
-        Name:
         <input type="text" placeholder="Enter a name" onChange={handleChange} name='name' />
       </label>
       <label>
-        Description:
         <input type="text" placeholder="Enter a description" onChange={handleChange} name='desc' />
       </label>
       <label>
-        Imdb:
-        <input type="number" placeholder="Enter an imdb" onChange={handleChange} name='imdb' />
+        <input type="number"  placeholder="Enter a score" onChange={handleChange} name='imdb' />
       </label>
       <label>
-        Image url:
         <input type="text" placeholder="Enter a image url" onChange={handleChange} name='poster' />
       </label>
-      <button onClick={handleClick} className="addfilm">Add</button>
+      <button onClick={handleClick} className="addButton">Add</button>
     </div>
   );
 }

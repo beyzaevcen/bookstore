@@ -6,7 +6,7 @@ async function getAllFilms() {
         const data= await db.query(q);
         return data;
     } catch (err) {
-        throw err; // Throw the original error for better error handling
+        throw err; 
     }
 }
 
@@ -26,13 +26,44 @@ async function createFilm(filmData) {
 
         return result; 
     } catch (err) {
-        throw err; // Throw the original error for better error handling
+        throw err; 
+    }
+}
+async function deleteFilm(filmid) {
+    try {
+        const q = "DELETE FROM `test`.`films` WHERE id =?";
+        const result = await db.query(q, [filmid]); 
+        console.log(result);// Return the result of the insertion operation
+
+        return result; 
+    } catch (err) {
+        throw err;
+    }
+}
+async function updateFilm(filmid) {
+    try {
+        const q = "UPDATE films SET `name`= ?, `desc`=?,`poster`=?,`imdb`=? WHERE id=?";
+        const values = [
+            filmData.name,
+            filmData.desc,
+            filmData.poster,
+            filmData.imdb,
+        ];
+        const result = await db.query(q, [...values,filmid]); 
+        console.log(result);
+
+        return result; 
+    } catch (err) {
+        throw err;
     }
 }
 
 
+
 module.exports = {
     createFilm,
-    getAllFilms
+    getAllFilms,
+    deleteFilm,
+    updateFilm
 };
 

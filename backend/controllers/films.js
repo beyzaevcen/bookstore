@@ -18,9 +18,30 @@ async function createFilm(req, res) {
         res.status(500).json({ error: err.message });
     }
 }
-
+async function deleteFilm(req, res) {
+    try {
+       
+         const filmId = req.params.id;
+         const result = await filmsModel.deleteFilm(filmId);
+         res.json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+}
+async function updateFilm(req, res) {
+    try {
+       
+         const filmId = req.params.id;
+         const result = await filmsModel.updateFilm(filmId);
+         res.json(result);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+}
 module.exports = {
     createFilm,
-    getAllFilms
+    getAllFilms,
+    deleteFilm,
+    updateFilm
 };
 
