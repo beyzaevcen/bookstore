@@ -30,11 +30,16 @@ async function deleteFilm(req, res) {
 }
 async function updateFilm(req, res) {
     try {
-       
-         const filmId = req.params.id;
-         const result = await filmsModel.updateFilm(filmId);
+       const data= {
+        ...req.body,
+        id:req.params.id
+       }
+
+         const result = await filmsModel.updateFilm(data);
          res.json(result);
+
     } catch (err) {
+        console.log(err)
         res.status(500).json({ error: err.message });
     }
 }

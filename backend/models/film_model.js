@@ -40,20 +40,18 @@ async function deleteFilm(filmid) {
         throw err;
     }
 }
-async function updateFilm(filmid) {
+async function updateFilm(filmdata) {
     try {
-        const q = "UPDATE films SET `name`= ?, `desc`=?,`poster`=?,`imdb`=? WHERE id=?";
-        const values = [
-            filmData.name,
-            filmData.desc,
-            filmData.poster,
-            filmData.imdb,
-        ];
-        const result = await db.query(q, [...values,filmid]); 
+        console.log(filmdata)
+        const {name,desc,imdb,poster,id}=filmdata;
+        const q = "UPDATE films SET `name`= ?, `desc`=?,`imdb`=? ,`poster`=? WHERE id=?";
+    
+        const result = await db.query(q, [name,desc,imdb,poster,id]); 
         console.log(result);
 
         return result; 
     } catch (err) {
+        console.log(err)
         throw err;
     }
 }
