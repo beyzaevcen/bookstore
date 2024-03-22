@@ -1,23 +1,31 @@
-import React from 'react'
-import './LoginSignup.css'
-
-// import user from './assets/person.png'
-// import email from './assets/email.png'
-// import password from './assets/password.png'
-import { useAuth0 } from '@auth0/auth0-react'
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom'; // Link bileşeni eklenmiştir.
+import './login.css';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export const LoginSignup = () => {
+  const { loginWithPopup, logout, isAuthenticated } = useAuth0();
 
-  const {loginWithPopup,loginWithRedirect,logout,user,isAuthenticated } =useAuth0()
+  // Kullanıcı girişi durumu değiştiğinde otomatik yönlendirme yapılacak.
+  useEffect(() => {
+    if (isAuthenticated) {
+      window.location.href = '/films';
+    }
+  }, [isAuthenticated]);
+
   return (
     <div className='login_main'>
-  <ul>
-      <li><button onClick={loginWithPopup}>Login with popup</button></li>
-      <li><button onClick={loginWithRedirect}>Login with redirect</button></li>
-      <li><button onClick={logout}>Logout</button></li>
-    </ul>
-    <h3>User is {isAuthenticated? "loged in " : "not logged in"}</h3>
+      <ul>
+        <li><button onClick={loginWithPopup}>Login with redirect</button></li>
+        <li><button onClick={logout}>Logout</button></li>
+      </ul>
+      <h3>User is {isAuthenticated ? "logged in " : "not logged in"}</h3>
+      {/* isAuthenticated true ise '/films' sayfasına, değilse '/login' sayfasına yönlendirir. */}
+      {isAuthenticated ? (
+        <Link to="/films">Go to Films</Link>
+      ) : (
+        <Link to="/">Go to Login</Link>
+      )}
     </div>
-  
-  )
+  );
 }

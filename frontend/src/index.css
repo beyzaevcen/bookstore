@@ -6,7 +6,7 @@ body{
 
 
 .App{
-  height: 80vh;
+
   padding: 0px 100px;
   display: flex;
   align-items: center;
@@ -43,6 +43,7 @@ h1{
 
 .addPage{
   padding-top: 20px;
+
   
 }
 
@@ -109,4 +110,7 @@ background-color:  rgb(158, 70, 108);
   font-weight: bold;
   cursor: pointer;
   
+}
+.button + .button {
+  margin-left: 10px; 
 }

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'; 
+import { useAuth0 } from '@auth0/auth0-react';
 
 function Films() {
   const [films, setFilms] = useState([]);
+  const { logout } = useAuth0();
 
   useEffect(() => {
     const fetchAllFilms = async () => {
@@ -59,6 +61,7 @@ function Films() {
       </div>
   <div className='addPage'>
   <button className='button'><Link to="/add" style={{ color: "inherit", textDecoration: "none" }}>Add new film</Link></button>
+  <button className='button' onClick={logout}>Logout</button>
   </div>
      
     </div>
