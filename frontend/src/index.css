@@ -1,100 +1,98 @@
-
-
-body{
+body {
   background-color: rgb(245, 233, 244);
+ 
 }
 
-
-.App{
-
+.App {
   padding: 0px 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-
 }
-h1{
+
+h1 {
   color: rgb(158, 70, 108);
   font-weight: bold;
   font-size: 40px;
 }
 
-.films{
+.filmpart {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
 
-  padding-right: 20px;
-  }
-
-.filminfo{
+.films {
   display: flex;
   flex-direction: column;
-  
+  text-align: center;
 }
 
-.allpage{
+.filminfo {
+  flex-grow: 1; /* Filminformasyon kısmının gerektiğinde genişlemesini sağlar */
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+}
+
+.allpage {
   display: flex;
   flex-direction: column;
 }
 
-.filmpart{
-  display: flex;
-  flex-direction: row;
-}
-
-.addPage{
+.addPage {
   padding-top: 20px;
-
-  
 }
 
-
-.form{
+.form {
   display: flex;
   flex-direction: column;
   gap: 20px;
-
 }
 
-img{
-  width: 200px;
-  height: 300px;
+img {
+  width: 100%;
+  height: 405px;
   object-fit: cover;
   background-color: black;
 }
 
 input {
-  width: 250px;
+  width: 100%;
   padding: 10px;
   border: 1px solid gray;
 }
 
 textarea {
+  width: 100%;
   padding: 10px;
 }
 
 .buttons {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  gap: 10px; /* Adjust the value as needed */
+  gap: 10px; /* Butonlar arası boşluk */
 }
 
 .buttons * {
   padding: 5px;
   border: none;
-  background-color:  rgb(245, 233, 244);
+  background-color: rgb(245, 233, 244); /* Değişiklik: Buton arka plan rengi */
   color: white;
   font-weight: bold;
   cursor: pointer;
 }
-.delete{
+
+.delete {
   color: rgb(186, 90, 90);
 }
-.update{
+
+.update {
   color: rgb(127, 127, 182);
 }
 
-.addButton{
+.addButton {
   border: none;
   padding: 10px;
   background-color: rgb(158, 70, 108);
@@ -103,14 +101,14 @@ textarea {
   cursor: pointer;
 }
 
-.button{
+.button {
   padding: 10px;
-background-color:  rgb(158, 70, 108);
+  background-color: rgb(158, 70, 108);
   color: white;
   font-weight: bold;
   cursor: pointer;
-  
 }
+
 .button + .button {
-  margin-left: 10px; 
+  margin-left: 10px;
 }

@@ -51,6 +51,22 @@ async function updateFilm(filmdata) {
         throw err;
     }
 }
+async function getFilm(id) {
+    try {
+        const q = "SELECT * FROM films WHERE id = ?";
+        const data = await db.query(q, [id]);
+
+        if (data.length === 0) {
+            // Belirtilen ID'ye sahip bir film bulunamadıysa
+            return null; // null döndürerek belirtin.
+        }
+
+        return data[0]; // Bulunan filmi döndür
+    } catch (err) {
+        throw err;
+    }
+}
+
 
 
 
@@ -58,6 +74,7 @@ module.exports = {
     createFilm,
     getAllFilms,
     deleteFilm,
-    updateFilm
+    updateFilm,
+    getFilm
 };
 

@@ -42,10 +42,25 @@ async function updateFilm(req, res) {
         res.status(500).json({ error: err.message });
     }
 }
+async function getFilm(req, res) {
+    try {
+        const filmId = req.params.id;
+        const film = await filmsModel.getFilm(filmId);
+
+        if (!film) {
+            return res.status(404).json({ error: "Film not found" });
+        }
+
+        res.json(film);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+}
 module.exports = {
     createFilm,
     getAllFilms,
     deleteFilm,
-    updateFilm
+    updateFilm,
+    getFilm
 };
 
