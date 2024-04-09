@@ -21,9 +21,9 @@ function Films() {
     fetchAllFilms();
   }, []);
 
-  const handleDelete =async (id)=>{
+  const handleDelete = async (id) => {
     try {
-      await axios.delete("http://localhost:3306/films/"+id)
+      await axios.delete("http://localhost:3306/films/" + id);
       window.location.reload();
     } catch (err) {
       console.log(err);
@@ -35,38 +35,38 @@ function Films() {
   return (
     <div className='allpage'>
       <h1>My Film Archive</h1>
-      <div className='filmpart'>
-  
-      {Array.isArray(films) ? (
-        films.map((film) => (
-          <div key={film.id} className="films">
-             <img src={film.poster} alt={film.name} className="poster"/>
-          <div className='filminfo'>
-          <h2>{film.name}</h2>
-            <p>{film.desc}</p>
-            <p>rate: {film.imdb}</p>
-            <div className='buttons'>
-            <button className='delete' onClick={()=>handleDelete(film.id)}>delete</button>
-            <button className='update'><Link to={`/update/${film.id}`} style={{ color: "inherit", textDecoration: "none" }}>update</Link></button>
-
-            </div>
-        
-          </div>
-           
-          </div>
-        ))
-      ) : (
-        <div>No films available</div>
-      )}
+      <div className='content'>
+        <div className='sidebar'>
+          {/* Sidebar content */}
+        </div>
+        <div className='filmpart'>
+          {/* Films content */}
+          {Array.isArray(films) ? (
+            films.map((film) => (
+              <div key={film.id} className="films">
+                <img src={film.poster} alt={film.name} className="poster"/>
+                <div className='filminfo'>
+                  <h2>{film.name}</h2>
+                  <p>{film.desc}</p>
+                  <p>rate: {film.imdb}</p>
+                  <div className='buttons'>
+                    <button className='delete' onClick={() => handleDelete(film.id)}>delete</button>
+                    <button className='update'><Link to={`/update/${film.id}`} style={{ color: "inherit", textDecoration: "none" }}>update</Link></button>
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div>No films available</div>
+          )}
+        </div>
       </div>
-  <div className='addPage'>
-  <button className='button'><Link to="/add" style={{ color: "inherit", textDecoration: "none" }}>Add new film</Link></button>
-  <button className='button' onClick={logout}>Logout</button>
-  </div>
-     
+      <div className='addPage'>
+        <button className='button'><Link to="/add" style={{ color: "inherit", textDecoration: "none" }}>Add new film</Link></button>
+        <button className='button' onClick={logout}>Logout</button>
+      </div>
     </div>
   );
-  
 }
 
 export default Films;

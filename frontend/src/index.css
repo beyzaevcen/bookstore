@@ -1,14 +1,14 @@
 body {
   background-color: rgb(245, 233, 244);
+  margin: 0;
+  padding: 0;
  
 }
 
 .App {
-  padding: 0px 100px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+   width: 100vw;
+   height: 100vh;
 }
 
 h1 {
@@ -30,13 +30,14 @@ h1 {
 }
 
 .filminfo {
-  flex-grow: 1; /* Filminformasyon kısmının gerektiğinde genişlemesini sağlar */
+  flex-grow: 1; 
   padding: 10px;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
 }
 
 .allpage {
+  padding-left: 90px;
   display: flex;
   flex-direction: column;
 }
@@ -111,4 +112,22 @@ textarea {
 
 .button + .button {
   margin-left: 10px;
+}
+
+/* Sidebar */
+
+.sidebar{
+  height: 100%;
+  width: 300px;
+  background-color: rgb(126, 115, 134);
+
+
+}
+/* Content */
+.content {
+flex: 1;
+}
+
+.container{
+  display: flex;
 }
