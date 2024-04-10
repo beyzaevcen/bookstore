@@ -1,5 +1,7 @@
 import React from 'react'
 import MovieFilterIcon from '@mui/icons-material/MovieFilter';
+import AddIcon from '@mui/icons-material/Add';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 
 
@@ -13,13 +15,13 @@ export const SidebarData = [
     },
     {
         title: "Add Film",
-        icon: <MovieFilterIcon/>,
+        icon: <AddIcon/>,
         link: "/add"
 
     },
     {
         title: "Log out",
-        icon: <MovieFilterIcon/>,
+        icon: <LogoutIcon/>,
         link: "/"
 
     },
