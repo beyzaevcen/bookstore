@@ -4,14 +4,18 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 export default function Sidebar() {
   const { logout, user } = useAuth0();
-  const { name, picture } = user || {}; // Kullanıcı objesi tanımsızsa boş bir nesne kullan
 
   return (
     <div className='sidebar'>
-      {user && (
+      {user ? (
         <div className='user-info'>
-          <img src={picture} alt='User Avatar' className='user-avatar' />
-          <span className='user-name'>{name}</span>
+          <img src={user.picture || ''} alt='User Avatar' className='user-avatar' />
+          <span className='user-name'>{user.name || 'undefined'}</span>
+        </div>
+      ) : (
+        <div className='user-info'>
+          <img src='' alt='User Avatar' className='user-avatar' />
+          <span className='user-name'>undefined</span>
         </div>
       )}
       <ul className='sidebarlist'>
