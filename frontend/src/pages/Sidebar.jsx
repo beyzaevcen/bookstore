@@ -5,6 +5,10 @@ import { useAuth0 } from '@auth0/auth0-react';
 export default function Sidebar() {
   const { logout, user } = useAuth0();
 
+  const handleItemClick = (link) => {
+    window.location.pathname = link;
+  };
+
   return (
     <div className='sidebar'>
       {user ? (
@@ -20,7 +24,12 @@ export default function Sidebar() {
       )}
       <ul className='sidebarlist'>
         {SidebarData.map((val, key) => (
-          <li key={key} className='sidebaritem' id={window.location.pathname === val.link ? 'active' : ''} onClick={() => { window.location.pathname = val.link }}>
+          <li
+            key={key}
+            className='sidebaritem'
+            id={window.location.pathname === val.link ? 'active' : ''}
+            onClick={() => handleItemClick(val.link)}
+          >
             <div id='icon'>{val.icon}</div>
             <div id='title'>{val.title}</div>
           </li>

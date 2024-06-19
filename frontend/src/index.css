@@ -12,7 +12,7 @@ body {
 }
 
 h1 {
-  color: #003C43;
+  color: #6C4B5D;
   font-weight: bold;
   font-size: 40px;
 
@@ -32,6 +32,7 @@ h1 {
   display: flex;
   flex-direction: column;
   text-align: center;
+  padding-right: 20px;
 }
 
 .filminfo {
@@ -42,7 +43,7 @@ h1 {
 }
 
 .allpage {
-  padding-left: 90px;
+  padding-left: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,7 +75,7 @@ h1 {
 .addButton {
   border: none;
   padding: 10px;
-  background-color: #003C43;
+  background-color: #6C4B5D;
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -128,7 +129,7 @@ background-color: white;
 .sidebar {
   position: fixed; /* Fix the sidebar */
   width: 300px;
-  background-color: #003C43;
+  background-color: #6C4B5D;
   height: 100%;
 }
 
@@ -170,11 +171,11 @@ background-color: white;
 
 .sidebaritem:hover {
   cursor: pointer;
-  background-color: #135D66;
+  background-color: #8d687c;
 }
 
 #active {
-  background-color: #135D66;
+  background-color: #8d687c;
 }
 
 #icon {
@@ -190,4 +191,124 @@ background-color: white;
 
 .container {
   display: flex;
+}
+
+.home-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Tüm ekran yüksekliği */
+  width: 100vw; /* Tüm ekran genişliği */
+  background-image: url("/Users/beyzaevcen/Desktop/filmstore/frontend/src/pages/images/a.jpg");
+  background-size: cover; /* Resmin tüm ekrana yayılmasını sağlar */
+  background-position: center; /* Resmi ortalar */
+  background-repeat: no-repeat; /* Resmin tekrarlanmamasını sağlar */
+
+  font-size: 40px; 
+  font-weight: bold; 
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Siyah renk ve %50 opaklık */
+}
+
+.content {
+  position: relative;
+  z-index: 1; /* İçeriğin overlay üstünde olmasını sağlar */
+}
+/* 
+.welcome{
+  font-size: 72px;
+  color: white;
+  font-family:'Inconsolata', monospace;
+} */
+.animated-text {
+  font-size: 72px;
+  font-weight: bold;
+  animation: textAnimation 3s infinite alternate; /* Animasyon adı, süre, tekrar sayısı ve davranışı */
+}
+
+@keyframes textAnimation {
+  0% {
+    color: white;
+    transform: scale(1);
+  }
+  50% {
+    color: white;
+    transform: scale(1.1);
+  }
+  100% {
+    color: white;
+    transform: scale(1);
+  }
+}
+
+.log-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CSS */
+.button-56 {
+  align-items: center;
+  background-color: white;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-56:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+.button-56:hover:after {
+  transform: translate(0, 0);
+}
+
+.button-56:active {
+  background-color: #ffdeda;
+  outline: 0;
+}
+
+.button-56:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .button-56 {
+    padding: 0 40px;
+  }
 }
